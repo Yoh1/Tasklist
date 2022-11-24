@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Arrays from "./Arrays";
 import FormAdd from "./FormAdd";
 import FormAddtask from "./FormAddtask";
@@ -71,6 +71,10 @@ export default function Container() {
     const [displayTask, setDisplayTask] = useState(false);
     const [displaySupArray, setdisplaySupArray] = useState(false);
 
+
+
+   
+      
 
 
     function addTable(title) {
@@ -186,9 +190,14 @@ export default function Container() {
             <button onClick={() => {
                 setdisplaySupArray(true)
             }} className="btn btn-primary">Supprimer une tâche</button>
-            {tables.map((table, index) => {
-                return <Arrays key={index} data={table} closeSupArray={closeSupArray} deleteTask={deleteTask} />
-            })}
+
+            <div className="d-flex">
+                {tables.map((table, index) => {
+                    return <Arrays  key={index} data={table} closeSupArray={closeSupArray} deleteTask={deleteTask} />
+                })}
+
+            </div>
+
         </div>
 
 
